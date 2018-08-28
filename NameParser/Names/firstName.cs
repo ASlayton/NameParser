@@ -6,18 +6,27 @@ namespace NameParser.Names
 {
     class FirstName
     {
-        private string _firstName;
+        // State a property (a read-only field)
+        public string Name { get; private set; }
 
-        public void GetName() {
+        public void GetName()
+        {
             Console.WriteLine("Enter your first name.");
-            _firstName = Console.ReadLine();
+            Name = Console.ReadLine();
         }
 
-        public void PrintFirstName() {
-            foreach (var letter in _firstName)
+        public void PrintName()
+        {
+            foreach (var letter in Name)
             {
                 Console.WriteLine(letter);
             }
+        }
+
+        public void GetAndPrint()
+        {
+            GetName();
+            PrintName();
         }
     }
 }
