@@ -1,4 +1,5 @@
 ﻿using System;
+using NameParser.Names;
 
 namespace NameParser
 {
@@ -6,13 +7,14 @@ namespace NameParser
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter your first name.");
-            var firstName = Console.ReadLine();
 
-            foreach (var letter in firstName)
-            {
-                Console.WriteLine(letter);
-            }
+        //Label
+        beginning:
+
+            var firstName = new FirstName();
+            firstName.GetName();
+            firstName.PrintName();
+            
 
             Console.WriteLine("Enter your last name.");
             var lastName = Console.ReadLine();
@@ -41,11 +43,13 @@ namespace NameParser
             else
             {
                 Console.WriteLine($@"{firstName}That sucks.This is the continuation of a really long line just to prove something right now.");
+                //Don't ever write this- this is an example of procedural programming
+                goto beginning;
             }
 
 
 
-            Console.WriteLine($"Goodbye {firstName} {middleName} {lastName}. Press enter to exist.");
+            Console.WriteLine($"Goodbye {enteredFirstName} {middleName} {lastName}. Press enter to exist.");
             Console.ReadLine();
         }
     }
