@@ -7,10 +7,6 @@ namespace NameParser
     {
         static void Main(string[] args)
         {
-
-        //Label
-        beginning:
-
             var firstName = new FirstName();
             firstName.GetName();
             firstName.PrintName();
