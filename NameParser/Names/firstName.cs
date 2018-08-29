@@ -4,15 +4,10 @@ using System.Text;
 
 namespace NameParser.Names
 {
-    class FirstName
+    class FirstName : NameBase
     {
-        // State a property (a read-only field)
-        public string Name { get; private set; }
-
-        public void GetName()
+        public FirstName() : base("first")
         {
-            Console.WriteLine("Enter your first name.");
-            Name = Console.ReadLine();
         }
 
         public void PrintName()
@@ -21,12 +16,6 @@ namespace NameParser.Names
             {
                 Console.WriteLine(letter);
             }
-        }
-
-        public void GetAndPrint()
-        {
-            GetName();
-            PrintName();
         }
     }
 }

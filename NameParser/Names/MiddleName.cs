@@ -1,14 +1,22 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NameParser.Names
 {
     class MiddleName
-    {
-        public string Name { get; private set; } = "";
+    { 
+        private readonly FirstName _firstName;
+    
+        public string Name { get; private set; }
+        
+        //Constructor
+        // - has no return type
+        public MiddleName(FirstName firstName)
+        {
+            Name = "";
+            _firstName = firstName;
+        }
 
-        public void GetName( string firstName)
+        public void GetName()
         {
             if (ConfirmMiddleName())
             {
@@ -17,7 +25,7 @@ namespace NameParser.Names
             }
             else
             {
-                Console.WriteLine($@"Golly Gee, {firstName}, that sucks.");
+                Console.WriteLine($@"Golly Gee, {_firstName.Name}, that sucks.");
             }
         }
 
