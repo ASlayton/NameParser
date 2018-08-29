@@ -1,34 +1,39 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NameParser.Names
 {
-    class MiddleName
-    {
-        public string Name { get; private set; } = "";
-
-        public void GetName( string firstName)
+    class MiddleName : NameBase
+    { 
+        private readonly FirstName _firstName;
+        
+        //Constructor
+        // - has no return type
+        public MiddleName(FirstName firstName) : base("middle")
         {
-            if (ConfirmMiddleName())
+            Name = "";
+            _firstName = firstName;
+        }
+
+        public override void GetName()
+        {
+            if (UserHasMiddleName())
             {
-                Console.WriteLine("What is your middle name?");
-                Name = Console.ReadLine();
+                base.GetName();
             }
             else
             {
-                Console.WriteLine($@"Golly Gee, {firstName}, that sucks.");
+                Console.WriteLine($@"Golly Gee, {_firstName.Name}, that sucks.");
             }
         }
 
-        bool ConfirmMiddleName()
+        bool UserHasMiddleName()
         {
             Console.WriteLine("Do you have a middle name? (y/n)");
             var hasMiddleName = Console.ReadLine();
 
             return hasMiddleName == "y";
         }
-        public void PrintName()
+        public override void PrintName()
         {
             var i = 0;
             foreach (var letter in Name)
