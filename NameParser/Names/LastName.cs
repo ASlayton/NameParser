@@ -10,7 +10,7 @@ namespace NameParser.Names
         {
         }
 
-        public void PrintName()
+        public override void PrintName()
         { 
             var lastNameWithSpaces = "";
             //var x = null ?? (bool?)true;
